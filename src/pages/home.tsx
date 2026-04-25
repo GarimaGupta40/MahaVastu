@@ -419,20 +419,9 @@ export function Nav() {
 }
 
 function HeroBackdrop() {
-  const directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
-  const sparks = [
-    { cx: 14, cy: 22, d: 0 },
-    { cx: 84, cy: 26, d: 1.2 },
-    { cx: 28, cy: 74, d: 0.6 },
-    { cx: 72, cy: 80, d: 2.1 },
-    { cx: 50, cy: 10, d: 1.7 },
-    { cx: 90, cy: 62, d: 0.3 },
-    { cx: 8,  cy: 52, d: 2.4 },
-    { cx: 42, cy: 92, d: 1.0 },
-  ];
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      {/* Spiritual Indian background — sacred courtyard with cosmic galaxy descending into a rangoli mandala */}
+      {/* Hero background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${homeHeroBg})` }}
@@ -450,93 +439,6 @@ function HeroBackdrop() {
         className="absolute inset-x-0 bottom-0 h-32"
         style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%)" }}
       />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(130vw,1100px)] aspect-square opacity-[0.20]">
-        <svg viewBox="-110 -110 220 220" className="w-full h-full">
-          <defs>
-            <linearGradient id="mvVastu" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f6d46b" />
-              <stop offset="100%" stopColor="#ef4d2b" />
-            </linearGradient>
-            <radialGradient id="mvBrahma" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#ef4d2b" stopOpacity="0.9" />
-              <stop offset="100%" stopColor="#f6d46b" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-
-          {/* Outer rotating dashed circle (cosmic boundary) */}
-          <g className="animate-mv-orbit">
-            <circle cx="0" cy="0" r="100" fill="none" stroke="url(#mvVastu)" strokeWidth="0.4" strokeDasharray="1 3" />
-          </g>
-
-          {/* Vastu chakra: nested squares + diagonals (counter-rotating slowly) */}
-          <g className="animate-mv-orbit-reverse">
-            {/* 9x9 Vastu Purusha grid (3 outer squares hint at the mandala layers) */}
-            <rect x="-90" y="-90" width="180" height="180" fill="none" stroke="url(#mvVastu)" strokeWidth="0.6" />
-            <rect x="-72" y="-72" width="144" height="144" fill="none" stroke="url(#mvVastu)" strokeWidth="0.5" />
-            <rect x="-54" y="-54" width="108" height="108" fill="none" stroke="url(#mvVastu)" strokeWidth="0.5" />
-            <rect x="-36" y="-36" width="72" height="72" fill="none" stroke="url(#mvVastu)" strokeWidth="0.5" />
-            <rect x="-18" y="-18" width="36" height="36" fill="none" stroke="url(#mvVastu)" strokeWidth="0.6" />
-
-            {/* 9x9 grid lines inside outer square */}
-            {Array.from({ length: 8 }).map((_, i) => {
-              const p = -90 + (i + 1) * 20;
-              return (
-                <g key={i}>
-                  <line x1={p} y1={-90} x2={p} y2={90} stroke="url(#mvVastu)" strokeWidth="0.2" />
-                  <line x1={-90} y1={p} x2={90} y2={p} stroke="url(#mvVastu)" strokeWidth="0.2" />
-                </g>
-              );
-            })}
-
-            {/* Diagonal direction lines (8 dik) */}
-            <line x1="-90" y1="-90" x2="90" y2="90" stroke="url(#mvVastu)" strokeWidth="0.4" />
-            <line x1="-90" y1="90" x2="90" y2="-90" stroke="url(#mvVastu)" strokeWidth="0.4" />
-            <line x1="0" y1="-90" x2="0" y2="90" stroke="url(#mvVastu)" strokeWidth="0.4" />
-            <line x1="-90" y1="0" x2="90" y2="0" stroke="url(#mvVastu)" strokeWidth="0.4" />
-
-            {/* 8 directional markers (dik palakas) */}
-            {directions.map((_, i) => {
-              const a = (i * 45 - 90) * (Math.PI / 180);
-              const x = Math.cos(a) * 90;
-              const y = Math.sin(a) * 90;
-              return <circle key={i} cx={x} cy={y} r="2" fill="#ef4d2b" />;
-            })}
-          </g>
-
-          {/* 45° rotated inner square (yantra layer) */}
-          <g className="animate-mv-orbit" style={{ transformOrigin: "0 0" }}>
-            <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="url(#mvVastu)" strokeWidth="0.5" transform="rotate(45)" />
-          </g>
-
-          {/* 8-petal lotus around Brahma sthana */}
-          <g className="animate-mv-orbit-reverse">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <path
-                key={i}
-                d="M0,-26 C6,-22 6,-12 0,-8 C-6,-12 -6,-22 0,-26 Z"
-                fill="none"
-                stroke="url(#mvVastu)"
-                strokeWidth="0.5"
-                transform={`rotate(${i * 45})`}
-              />
-            ))}
-          </g>
-
-          {/* Brahma sthana — central glow + pulsing dot */}
-          <circle cx="0" cy="0" r="14" fill="url(#mvBrahma)" />
-          <circle cx="0" cy="0" r="3" fill="url(#mvVastu)" className="animate-mv-pulse-dot" />
-        </svg>
-      </div>
-
-      <div className="absolute inset-0">
-        {sparks.map((s, i) => (
-          <span
-            key={i}
-            className="absolute block w-[6px] h-[6px] rounded-full bg-[#ef4d2b] animate-mv-twinkle"
-            style={{ left: `${s.cx}%`, top: `${s.cy}%`, animationDelay: `${s.d}s` }}
-          />
-        ))}
-      </div>
     </div>
   );
 }
