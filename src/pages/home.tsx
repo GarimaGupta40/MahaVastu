@@ -7,7 +7,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import homeHeroBg from "@assets/image_1777102600567.png";
+import homeHeroBg from "@/assets/home-hero-bg.png";
 import vastuConsultingImg from "@assets/Gemini_Generated_Image_ycdda8ycdda8ycdd_1777016808807.png";
 import astrologyConsultingImg from "@assets/image_1777016938503.png";
 import astroVastuImg from "@assets/image_1777016970303.png";
