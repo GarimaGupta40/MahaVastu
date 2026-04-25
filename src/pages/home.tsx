@@ -7,7 +7,7 @@ import {
   Briefcase,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import homeHeroBg from "@/assets/home-hero-bg.png";
+import homeHeroBg from "@assets/image_1777103584252.png";
 import vastuConsultingImg from "@assets/Gemini_Generated_Image_ycdda8ycdda8ycdd_1777016808807.png";
 import astrologyConsultingImg from "@assets/image_1777016938503.png";
 import astroVastuImg from "@assets/image_1777016970303.png";
@@ -434,7 +434,7 @@ function HeroBackdrop() {
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       {/* Spiritual Indian background — sacred courtyard with cosmic galaxy descending into a rangoli mandala */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-75"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${homeHeroBg})` }}
       />
       {/* Cream wash — strong on left for headline readability, soft on right to reveal the scene */}
@@ -442,7 +442,7 @@ function HeroBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,245,235,0.94) 0%, rgba(255,245,235,0.82) 35%, rgba(255,245,235,0.42) 65%, rgba(255,245,235,0.18) 100%)",
+            "linear-gradient(to right, rgba(255,245,235,0.92) 0%, rgba(255,245,235,0.78) 35%, rgba(255,245,235,0.36) 65%, rgba(255,245,235,0.12) 100%)",
         }}
       />
       {/* Bottom fade into next section */}
