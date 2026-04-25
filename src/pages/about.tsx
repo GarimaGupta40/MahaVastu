@@ -6,7 +6,7 @@ import {
   BookOpen, Lightbulb, Eye, Phone,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import aboutHeroBg from "@/assets/about-hero-bg.png";
+import aboutHeroBg from "@assets/image_1777104094886.png";
 import founderJourneyImg from "@assets/image_1777018008747.png";
 import lineageImg from "@assets/sunset-yoga-person-with-lotus-meditation-wellness-mindfulness_1777018125827.avif";
 import promiseImg from "@assets/imagesgg_1777018197224.jpg";
@@ -31,9 +31,9 @@ const LOTUS_IMG =
 function AboutHero() {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#fff5eb] via-[#fffaf0] to-white">
-      {/* Spiritual divine Indian background image (behind animation) */}
+      {/* Hero background image */}
       <div
-        className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-75"
+        className="absolute inset-0 pointer-events-none bg-cover bg-center"
         style={{ backgroundImage: `url(${aboutHeroBg})` }}
         aria-hidden="true"
       />
@@ -42,7 +42,7 @@ function AboutHero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,245,235,0.92) 0%, rgba(255,245,235,0.78) 35%, rgba(255,245,235,0.40) 65%, rgba(255,245,235,0.20) 100%)",
+            "linear-gradient(to right, rgba(255,245,235,0.92) 0%, rgba(255,245,235,0.78) 35%, rgba(255,245,235,0.36) 65%, rgba(255,245,235,0.12) 100%)",
         }}
         aria-hidden="true"
       />
@@ -52,65 +52,6 @@ function AboutHero() {
         style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%)" }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <svg viewBox="0 0 1200 700" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="aboutGlow" cx="50%" cy="50%" r="55%">
-              <stop offset="0%" stopColor="#f6d46b" stopOpacity="0.55" />
-              <stop offset="60%" stopColor="#ef4d2b" stopOpacity="0.10" />
-              <stop offset="100%" stopColor="#ef4d2b" stopOpacity="0" />
-            </radialGradient>
-            <linearGradient id="aboutStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f6d46b" />
-              <stop offset="100%" stopColor="#ef4d2b" />
-            </linearGradient>
-          </defs>
-          <circle cx="950" cy="350" r="380" fill="url(#aboutGlow)" />
-
-          {/* Outer rotating mandala */}
-          <g transform="translate(950 350)" className="animate-mv-orbit" style={{ transformOrigin: "center" }}>
-            {Array.from({ length: 24 }).map((_, i) => (
-              <line
-                key={i}
-                x1="0" y1="-300" x2="0" y2="-260"
-                stroke="url(#aboutStroke)"
-                strokeWidth="1.2"
-                strokeOpacity="0.5"
-                transform={`rotate(${i * 15})`}
-              />
-            ))}
-            <circle r="300" fill="none" stroke="url(#aboutStroke)" strokeOpacity="0.35" strokeDasharray="2 6" />
-            <circle r="260" fill="none" stroke="url(#aboutStroke)" strokeOpacity="0.25" />
-          </g>
-
-          {/* Inner counter-rotating lotus */}
-          <g transform="translate(950 350)" className="animate-mv-orbit-reverse" style={{ transformOrigin: "center" }}>
-            {Array.from({ length: 8 }).map((_, i) => (
-              <ellipse
-                key={i}
-                cx="0" cy="-130" rx="32" ry="100"
-                fill="none"
-                stroke="url(#aboutStroke)"
-                strokeWidth="1.4"
-                strokeOpacity="0.55"
-                transform={`rotate(${i * 45})`}
-              />
-            ))}
-            <circle r="40" fill="url(#aboutStroke)" fillOpacity="0.18" />
-          </g>
-
-          {/* Central glowing bindu */}
-          <circle cx="950" cy="350" r="6" fill="#ef4d2b" className="animate-mv-pulse-dot" />
-
-          {/* Background twinkles */}
-          {[
-            { x: 180, y: 120 }, { x: 320, y: 540 }, { x: 580, y: 90 },
-            { x: 120, y: 420 }, { x: 700, y: 600 }, { x: 460, y: 260 },
-          ].map((p, i) => (
-            <circle key={i} cx={p.x} cy={p.y} r="2" fill="#ef4d2b" className="animate-mv-twinkle" style={{ animationDelay: `${i * 0.6}s` }} />
-          ))}
-        </svg>
-      </div>
 
       <div className="relative section-container py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-7">
