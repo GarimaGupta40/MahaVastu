@@ -6,7 +6,7 @@ import {
   Phone, MessageCircle, Star, Award, ShieldCheck, Quote,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import servicesHeroBg from "@/assets/services-hero-bg.png";
+import servicesHeroBg from "@assets/image_1777103990127.png";
 import astroVastuImg from "@assets/image_1777017385292.png";
 import astrologyImg from "@assets/image_1777017424048.png";
 import landAnalysisImg from "@assets/image_1777017508626.png";
@@ -206,9 +206,9 @@ const PROCESS = [
 function ServicesHeroBackdrop() {
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      {/* Spiritual Indian celestial background image — zodiac wheel + Vastu yantra */}
+      {/* Hero background image */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-75"
+        className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${servicesHeroBg})` }}
       />
       {/* Cream wash overlay — stronger on the left for headline readability */}
@@ -216,7 +216,7 @@ function ServicesHeroBackdrop() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,245,235,0.93) 0%, rgba(255,245,235,0.78) 35%, rgba(255,245,235,0.40) 65%, rgba(255,245,235,0.18) 100%)",
+            "linear-gradient(to right, rgba(255,245,235,0.92) 0%, rgba(255,245,235,0.78) 35%, rgba(255,245,235,0.36) 65%, rgba(255,245,235,0.12) 100%)",
         }}
       />
       {/* Bottom fade into next section */}
@@ -224,39 +224,6 @@ function ServicesHeroBackdrop() {
         className="absolute inset-x-0 bottom-0 h-32"
         style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%)" }}
       />
-      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#f6d46b]/30 blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#ef4d2b]/20 blur-3xl" />
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(120vw,1000px)] aspect-square opacity-[0.18]">
-        <svg viewBox="-110 -110 220 220" className="w-full h-full">
-          <defs>
-            <linearGradient id="svcRing" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f6d46b" />
-              <stop offset="100%" stopColor="#ef4d2b" />
-            </linearGradient>
-          </defs>
-          <g className="animate-mv-orbit">
-            <circle cx="0" cy="0" r="100" fill="none" stroke="url(#svcRing)" strokeWidth="0.4" strokeDasharray="1 3" />
-            <rect x="-80" y="-80" width="160" height="160" fill="none" stroke="url(#svcRing)" strokeWidth="0.5" />
-            <rect x="-50" y="-50" width="100" height="100" fill="none" stroke="url(#svcRing)" strokeWidth="0.5" transform="rotate(45)" />
-          </g>
-          <g className="animate-mv-orbit-reverse">
-            <circle cx="0" cy="0" r="60" fill="none" stroke="url(#svcRing)" strokeWidth="0.5" />
-            {Array.from({ length: 8 }).map((_, i) => {
-              const a = (i * 45 * Math.PI) / 180;
-              return (
-                <circle
-                  key={i}
-                  cx={Math.cos(a) * 60}
-                  cy={Math.sin(a) * 60}
-                  r="2"
-                  fill="#ef4d2b"
-                />
-              );
-            })}
-          </g>
-          <circle cx="0" cy="0" r="3" fill="url(#svcRing)" className="animate-mv-pulse-dot" />
-        </svg>
-      </div>
     </div>
   );
 }
